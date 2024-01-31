@@ -1,5 +1,6 @@
 package com.dsi.book.service;
 
+import com.dsi.book.model.Author;
 import com.dsi.book.model.Book;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +13,17 @@ public class BookServiceDemo {
     private static List<Book> books = new ArrayList<>();
 
     static{
-        books.add(new Book(1,"Java Complete Reference", "Bozlur Rahman", "Educative"));
-        books.add(new Book(2,"Harry Porter", "J.K. Rowling", "Drama"));
-        books.add(new Book(3,"Twilight", "Stephenie Meyer", "Fiction"));
+        Author a1 = new Author(1,"Bozlur Rahman","Bangladesh");
+        Author a2 = new Author(2,"Jafor Iqbal","Bangladesh");
+        Author a3 = new Author(3,"Stephen Hawking" ,"USA");
+
+        books.add(new Book(1,"Java Complete Reference", a1, "Educative"));
+        books.add(new Book(2,"Tuntuni o Chotacchu", a2, "Drama"));
+        books.add(new Book(3,"Big Bang Theory", a3, "Fiction"));
     }
 
     public List<Book> getAllBooks(){
+        System.out.println(books.get(1));
         return books;
     }
 

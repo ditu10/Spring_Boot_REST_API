@@ -1,9 +1,6 @@
 package com.dsi.book.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Book {
@@ -11,13 +8,14 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    private String author;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Author author;
     private String category;
 
     public Book() {
     }
 
-    public Book(int id, String title, String author, String category) {
+    public Book(int id, String title, Author author, String category) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -40,11 +38,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
