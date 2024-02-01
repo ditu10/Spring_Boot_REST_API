@@ -10,6 +10,9 @@ public class Author {
     private String name;
     private String country;
 
+    @OneToOne(mappedBy = "author")
+    private Book book;
+
 
 
     public Author() {
